@@ -5,6 +5,7 @@
  */
 package hieubd.stax;
 
+import hieubd.products.Product;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -82,11 +83,11 @@ public class StaxParser {
             stillHasException = true;
             FileReader fr = null;
             try {
-                //e.printStackTrace();
+                e.printStackTrace();
                 String msg = e.getMessage();
                 if (msg.contains("terminated by the matching end-tag")){
                     String endTag = msg.substring(msg.lastIndexOf("<"), msg.length() - 2);
-                    System.out.println(endTag);
+                    //System.out.println(endTag);
                     //System.out.println(msg.substring(msg.lastIndexOf("<"), msg.length() - 2));
                     //ystem.out.println(eve.getLocation().getColumnNumber());
 
@@ -136,7 +137,7 @@ public class StaxParser {
                     int row = eve.getLocation().getLineNumber();
                     int col = e.getLocation().getColumnNumber();
                     //System.out.println(e.getLocation());
-                    System.out.println(row + " " + col);
+                    //System.out.println(row + " " + col);
                     fr = new FileReader(filePath);
                     BufferedReader br = new BufferedReader(fr);                   
                     List<String> lines = br.lines().skip(row - 1).limit(1).collect(Collectors.toList());
@@ -179,7 +180,7 @@ public class StaxParser {
                 Logger.getLogger(StaxParser.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 try {
-                    fr.close();
+                    if (fr != null) fr.close();
                 } catch (IOException ex) {
                     Logger.getLogger(StaxParser.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -192,39 +193,58 @@ public class StaxParser {
         return stillHasException;
     }
     
-    public void getElements(String filePath){
+    public List<Product> getElements(String filePath, List<Product> list){
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLEventReader eventReader = null;
         XMLEvent event = null;
         try {
-            eventReader = factory.createXMLEventReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
+            eventReader = factory.createXMLEventReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));           
+            String category = "", productType = "";
             while (eventReader.hasNext()){
                 event = eventReader.nextEvent();
                 if (event.isStartElement()){
                     StartElement ele = (StartElement) event;
                      //System.out.println(ele.getName().toString());
+                    Product product = new Product();
+                    boolean isProduct = false;
                     if (ele.getName().toString().equals("h1") && ele.getAttributeByName(new QName("class")).getValue().equals("breadCrumbs")){
                         boolean insideParentTag = true;
                         //String home = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
                         eventReader.nextEvent();
-                        String category = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
-                        String productType = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
+                        category = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
+                        productType = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
                         //System.out.println(home + "=" + category + "=" + productType);
-                        System.out.println(category + "=" + productType);
+                        //System.out.println(category + "=" + productType);
+                        
                     }
                     
-                    if (ele.getName().toString().equals("article") && ele.getAttributeByName(new QName("class")).getValue().equals("productlisting")){
+                    if (ele.getName().toString().equals("article") && ele.getAttributeByName(new QName("class")).getValue().equals("productlisting")){                    
+                        String imgSource = XMLUtils.getAttributeValue(eventReader, "img", "src");
                         String brand = XMLUtils.getTextContent(eventReader, "a", "class", "brand");
                         String name = XMLUtils.getTextContent(eventReader, "a", "class", "name");
                         String price = XMLUtils.getTextContent(eventReader, "strong", "class", "itemPrice");
-                        System.out.println(brand + "-" + name +"-" + price);
+                        //System.out.println(imgSource + "\n" + brand + "-" + name +"-" + price);
+                        product.setBrand(brand.trim());
+                        product.setName(name.trim());
+                        product.setPrice(price.trim());
+                        product.setCategory(category.trim());
+                        product.setType(productType.trim());
+                        product.setImgSource(imgSource.trim());
+                        isProduct = true;
                     }
                    
+                    if (list != null){
+                        if (isProduct){
+                             list.add(product);
+                        }
+                    }
+               
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return list;
     }
     
     /*public void saveToXML(String xmlDataFilePath){

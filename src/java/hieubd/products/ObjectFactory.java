@@ -42,6 +42,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Products }
+     * 
+     */
+    public Products createProducts() {
+        return new Products();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Product }{@code >}}
      * 
      */

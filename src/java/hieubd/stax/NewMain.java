@@ -5,6 +5,10 @@
  */
 package hieubd.stax;
 
+import static hieubd.constants.URLConstants.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBException;
 /**
  *
  * @author Admin
@@ -14,19 +18,43 @@ public class NewMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException {
         // TODO code application logic here
         String filepath = "test.html";
+        /*Products products = new Products();
+        List<Product> productList = products.getProduct();
         //String url = "http://www.kieutrongkhanh.net/";
-        //Internet.parseHTML(filepath, URLConstants.URL_ITEM_PER_PAGE_72);
+        List<String> URLs = initURLs();
+     
+        for (String URL : URLs) {
+            Internet.parseHTML(filepath, URL);
+            StaxParser parser = new StaxParser();
+            boolean stillHasException = true;
+            while (stillHasException) {            
+                stillHasException = parser.parseWellFormed(filepath, stillHasException);
+            }
+            productList = parser.getElements(filepath, productList);
+            //productList.forEach(p -> System.out.println(p));
+            
+        }
+        String XMLFilePath = "src/java/hieubd/xml/product.xml";
+        XMLUtils.JAXBMarshalling(products, XMLFilePath);*/
+        Internet.parseHTML(filepath, TREKKINN_CLIMBING_QUICKDRAW);
         StaxParser parser = new StaxParser();
         boolean stillHasException = true;
         while (stillHasException) {            
             stillHasException = parser.parseWellFormed(filepath, stillHasException);
         }
-        parser.getElements(filepath);
-        
-        //parser.saveToXML("test.xml");
     }
     
+    private static List<String> initURLs(){
+        List<String> URLs = new ArrayList<>();
+        URLs.add(URL_TENTS + URL_ITEM_PER_PAGE_24);
+        URLs.add(URL_STOVE + URL_ITEM_PER_PAGE_24);
+        URLs.add(URL_MEDICAL_FIRSTAID + URL_ITEM_PER_PAGE_24);
+        URLs.add(URL_FISHING_ROD_REEL + URL_ITEM_PER_PAGE_24);
+        URLs.add(URL_FISHING_TACKLE + URL_ITEM_PER_PAGE_24);
+        URLs.add(URL_FISHING_TACKLE_BOX + URL_ITEM_PER_PAGE_24);
+        return URLs;
+    }
 }

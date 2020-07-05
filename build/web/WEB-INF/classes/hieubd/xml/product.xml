@@ -1,5 +1,755 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<products xmlns="http://schema/product">
-    
-</products>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Products xmlns="http://schema/product">
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Autumn Glen™ Big `N Tall Sleeping Bag, 30°F, 81in x 39in</name>
+        <price>$59.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24940-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>KELTY</brand>
+        <name>Cosmic 20 Sleeping Bag, Fits 6ft 6in, 2lbs 10.7 oz</name>
+        <price>$189.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24514-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>KELTY</brand>
+        <name>Cosmic 20 Sleeping Bag, Fits 5ft 6in, 2lbs 3.9 oz</name>
+        <price>$189.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24513-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>KELTY</brand>
+        <name>Cosmic 20 Sleeping Bag, Fits 6ft, 2lbs 6.6 oz</name>
+        <price>$179.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24510-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>PEREGRINE</brand>
+        <name>Contour 20 Deg Mummy Sleeping Bag, 88x33x22in, 4lb3oz</name>
+        <price>$79.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24467-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Big Bear Sleeping Bag, 25 deg, 34 x 80 in, 5 lbs, Flannel Lined</name>
+        <price>$49.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24421-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>ENO</brand>
+        <name>Islander™ LED Nylon Blanket, 6ft 1in x 6ft 1in, Sunshine</name>
+        <price>$69.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23482-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Portable Pillow, 14in x 18in, Flannel</name>
+        <price>$11.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23248-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>THERMAREST</brand>
+        <name>Basecamp AF Self Inflating Mattress, XL, Mediterranean Blue</name>
+        <price>$119.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23144-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Cedar Creek Rectangle Sleeping Bag, 40-50 deg F, 33 x 75 in, Tricot Lined,</name>
+        <price>$29.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22937-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Tenacious Tape Mini Repair Patches, 2.5 x 1.5in, Clear, 6pc</name>
+        <price>$6.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22595-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Grizzly Canvas Sleeping Bag, -10degF, 39in x 81in</name>
+        <price>$129.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22400-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Redwood Rectangular Sleeping Bag, 33 X 75in, 2lb</name>
+        <price>$33.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22364-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>TEXSPORT</brand>
+        <name>Travel / Camp Pillow</name>
+        <price>$14.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22228-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Hi Tech Mummy Sleeping Bag, 15degF, 3lb Fill, 90 x 34 x 22in, Orange, Black</name>
+        <price>$59.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21573-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EUREKA</brand>
+        <name>Copper River Mummy Sleeping Bag, 30 deg, 3lb 7oz, Regular Right</name>
+        <price>$69.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21343-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>THERMAREST</brand>
+        <name>Prolite Plus Air Foam Mattress, Small, 20 x 47 x 1.5 in, 14 oz, Poppy</name>
+        <price>$94.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21178-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EQUINOX</brand>
+        <name>Mandrill Micro Fleece Mummy Bag / Liner</name>
+        <price>$54.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21041-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Self Inflating Air Mattress Pad, 78 x 30 x 3, Khaki</name>
+        <price>$99.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20622-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Self Inflating Air Mattress Pad, 78 x 25 x 2, Khaki</name>
+        <price>$75.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20620-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Self Inflating Air Mattress Pad, 72 x 20 x 1.5 in, Khaki</name>
+        <price>$50.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20619-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Self Inflating Air Mattress Pad, 72 x 20 x 1 in, Khaki</name>
+        <price>$40.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20618-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Self Inflating Air Mattress Pad, Mummy Style, 72 x 20 x 1.25 in, Yellow</name>
+        <price>$29.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20617-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>WORLD FAMOUS</brand>
+        <name>Rectangle Sleeping Bag, 30 deg, 33 x 75 in, 4 lbs Fill, Flannel Lined</name>
+        <price>$29.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Sleeping Bags</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20248-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>QUIKSHADE</brand>
+        <name>Go Hybrid Slant Leg Pop-up Canopy Tent, 7 x 7 ft, Regatta Blue</name>
+        <price>$79.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24418-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NITE IZE</brand>
+        <name>CamJam® XT™ Aluminum Cord Tightener with 16ft Paracord</name>
+        <price>$11.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23874-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NITE IZE</brand>
+        <name>CamJam® Small Cord Tightener, 2 pak</name>
+        <price>$2.79</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23873-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NITE IZE</brand>
+        <name>CamJam® Small Cord Tightener, 2 pak with 12ft Cord</name>
+        <price>$5.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23872-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>UVI-Treated Sport Beach Tent</name>
+        <price>$41.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23509-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EUREKA</brand>
+        <name>Midori 2 Person Tent, 7 ft 4 in x 4 ft 7 in x 3 ft 6 in H, 4 lbs 13 oz</name>
+        <price>$169.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23077-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Tenacious Tape Mini Repair Patches, 2.5 x 1.5in, Clear, 6pc</name>
+        <price>$6.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22595-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Star-Lite I Back Pack Tent with Fly, 2 Person, 7ft x 5ft x 40in H</name>
+        <price>$55.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22401-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Tenacious Tape Repair Round Patches, 2-3in Black, 2-3in Clear</name>
+        <price>$2.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22252-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Tenacious Tape Max Flex Patches, 2-3in x 5in, Clear</name>
+        <price>$6.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22251-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Tenacious Tape Repair Tape, 3in x 20in, Clear</name>
+        <price>$4.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22248-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>GEAR AID</brand>
+        <name>Seam Grip Waterproof Seam Sealer, 1 oz,</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22247-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COGHLANS</brand>
+        <name>Grommet Kit, 3/8in, 20pcs, Punch and Die</name>
+        <price>$6.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22181-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COGHLANS</brand>
+        <name>Tent Light, LED, 120 Lumens, 4 Levels,  3 AAAs</name>
+        <price>$13.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22174-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COGHLANS</brand>
+        <name>Paracord, 50ft, Black</name>
+        <price>$69.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22168-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Sundome 4 Tent, 4 Person, 9ft x 7ft x 4ft 11in, Navy / Grey</name>
+        <price>$99.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21569-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Sundome 3 Tent, 3 Persons, 7ft x 7ft x 4ft 4in, 6.5 lbs, Navy, Grey</name>
+        <price>$89.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21568-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Sundome 2, 7 ft x 5 ft x 48 in, 2 Person, Navy, Grey</name>
+        <price>$69.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21566-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EUREKA</brand>
+        <name>Tetragon HD5 Dome Tent, 9 x 9 ft, 12 lb 6 oz</name>
+        <price>$199.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21358-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EUREKA</brand>
+        <name>Tetragon HD2 Dome Tent, 5 x 7 ft, 5 lb 4 oz</name>
+        <price>$109.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21357-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COGHLANS</brand>
+        <name>Paracord, 50ft, Neon Orange</name>
+        <price>$6.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20089-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Pop-Up Expansible Tent, 4 Person, 9ft 2in x 6ft 6in x 40in, Lt Grey / Green</name>
+        <price>$99.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19774-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Pop-Up Expansible Tent, 2 Person, 7ft 5in x 4ft 5in x 35in, Green / Lt Grey</name>
+        <price>$74.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Tents</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19773-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>EUREKA</brand>
+        <name>Ignite Camp Stove, 2 Burners, 10,000 BTU ea</name>
+        <price>$109.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24946-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>MR. BAR-B-Q</brand>
+        <name>Chimney Charcoal Starter</name>
+        <price>$79.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>/images/icon_sale.png</imgSource>
+    </product>
+    <product>
+        <brand>JETBOIL</brand>
+        <name>Flash Cooking System, 1 Liter, 13.1 oz</name>
+        <price>$109.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24546-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>JETBOIL</brand>
+        <name>Zip Stove Cooking System</name>
+        <price>$84.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24498-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Appliance to 1 lb Cylinder Hose, 30 in</name>
+        <price>$36.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24459-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>OLICAMP</brand>
+        <name>Vector HD Backpacking Stove, 10,200 BTU, 3.3oz</name>
+        <price>$34.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23866-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>CENTURY TOOL</brand>
+        <name>Camp-a-Que Propane Camp Stove, 10,000 BTUs</name>
+        <price>$79.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23484-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Party Pail™ Charcoal Grill, 82 sq in</name>
+        <price>$29.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23483-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>MSR</brand>
+        <name>WindBurner® Personal Stove System, 1L, 15.3 oz</name>
+        <price>$149.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23415-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>JETBOIL</brand>
+        <name>CrunchIt, Butane Canister Recycling Tool</name>
+        <price>$9.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23251-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Portable Outdoor Butane Stove, 7650 BTUs</name>
+        <price>$33.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23250-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Propane Cylinder Base</name>
+        <price>$8.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23249-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>JETBOIL</brand>
+        <name>MightyMo Cooking System, 10,000 BTU</name>
+        <price>$59.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23216-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>Bulk-Tank-to-Appliance Hose with Regulator, 5ft</name>
+        <price>$41.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22551-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COGHLANS</brand>
+        <name>Fuel Tablets, 24 per pkg</name>
+        <price>$2.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22183-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Camp Oven, Aluminum, with Thermometer</name>
+        <price>$49.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22111-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Party Ball Charcoal Grill, 133 sq in</name>
+        <price>$39.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22000-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Camp Grill / Stove, Propane, InstaStart, 22,000 BTUs</name>
+        <price>$139.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21977-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Table Top Grill, Instastart, Propane Stove, 22,000 BTU</name>
+        <price>$99.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21707-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>MAXSUN</brand>
+        <name>Table Top Burner Stove, 7650 BTUs, Butane, Piezoelectric</name>
+        <price>$36.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21556-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN</brand>
+        <name>Gladiator Series Fyreknight 2 Burner Propane Stove, 24,000 BTU</name>
+        <price>$169.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21409-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>OLICAMP</brand>
+        <name>Vector Canister Stove and LT Pot Combo</name>
+        <price>$39.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20429-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>JETBOIL</brand>
+        <name>Sumo Cooking Stove, 1.8L Cup</name>
+        <price>$159.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Stoves</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/20426-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NATRAPEL</brand>
+        <name>12-hour Insect Repellent Spray, 6 oz</name>
+        <price>$8.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24471-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NATRAPEL</brand>
+        <name>Picardin Insect Repellent Wipes, 20%, 12 per box</name>
+        <price>$6.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24442-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BENS</brand>
+        <name>Tick and Insect Repellent Wipes, 30%, 12 per box</name>
+        <price>$5.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24441-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>REPEL</brand>
+        <name>Insect Repellent Mosquito Wipes, 30% Deet, 15 ct</name>
+        <price>$8.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/24207-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>SAWYER</brand>
+        <name>Permethrin Insect Repellent Treatment for Clothing Gear and Tents, 9oz Aerosol</name>
+        <price>$10.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23511-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>25% DEET Dry Insect Repellent, 4 oz Spray</name>
+        <price>$6.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23344-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>SAWYER</brand>
+        <name>Picaridin Insect Repellent, 6 oz</name>
+        <price>$9.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23332-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>STANSPORT</brand>
+        <name>2 in 1 Lantern Bug Zapper, 180 Lumens</name>
+        <price>$30.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23245-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BENS</brand>
+        <name>100 Mini Spray Insect Repellent, 0.5 oz</name>
+        <price>$3.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/23170-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BENS</brand>
+        <name>100 MAX Tick and Insect Repellent, Pump, 3.4 oz</name>
+        <price>$10.00</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22671-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>NATRAPEL</brand>
+        <name>Tick and Insect Repellent Pump Spray, Non-DEET, 12hr, 1oz</name>
+        <price>$4.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/22399-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>REPEL</brand>
+        <name>Sportsman Insect Repellent, 25% DEET, 6.5 Oz Aerosol</name>
+        <price>$6.49</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/21059-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Coleman Skinsmart DEET-Free Insect Repellent, 5 oz Pump Spray</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19559-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BUG BAND</brand>
+        <name>Geraniol Insect Repellent Wristband, Olive Green</name>
+        <price>$4.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19536-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BUG BAND</brand>
+        <name>Pump Spray Insect Repellent, 6 Fl. Oz</name>
+        <price>$6.95</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19361-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>BENS</brand>
+        <name>Eco Insect Repellent Spray, 30% Deet, 6 fl oz</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19237-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Botanicals DEET Free Insect Repellent, 4 oz Pump Spray</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19064-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Citronella Candle Misquito Repellent Lantern</name>
+        <price>$11.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19063-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Max Insect Repellent, 100% DEET, Spray 4 oz</name>
+        <price>$12.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/19062-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>CUTTERS</brand>
+        <name>Skinsations, 7% Deet, 6 oz Pump, with Aloe</name>
+        <price>$6.49</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/18782-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>CUTTERS</brand>
+        <name>All Family Insect Repellent, 7% Deet, 6 oz Pump</name>
+        <price>$5.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/18780-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Skinsmart DEET-Free Insect Repellent, 6 oz Aerosol</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/18157-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Max Insect Repellent, 100% DEET, Spray 1oz</name>
+        <price>$7.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/18155-DEFAULT-m.jpg</imgSource>
+    </product>
+    <product>
+        <brand>COLEMAN REPELLENTS</brand>
+        <name>Coleman Insect Repellent, 40% DEET, 6 fl oz, Aerosol</name>
+        <price>$8.99</price>
+        <category>Camp &amp; Hike</category>
+        <type>Insect Repellent</type>
+        <imgSource>https://www.theoutdoorworld.com/prodimages/18153-DEFAULT-m.jpg</imgSource>
+    </product>
+</Products>

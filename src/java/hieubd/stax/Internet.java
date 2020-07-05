@@ -27,6 +27,7 @@ public class Internet {
         Writer writer = null;
         try {
             boolean isBody = false;
+            boolean isJavascript = true;
             URL url = new URL(uri);
             URLConnection yc = url.openConnection();
             yc.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MTSE 6.0; Windows NT 5.0)");
@@ -42,8 +43,19 @@ public class Internet {
                     inputLine = inputLine.substring(inputLine.indexOf("<body"));
                     isBody = true;                    
                 }
-                if (isBody){
-                    inputLine = inputLine.replace("&", "&#38;");/*.replace("async defer", "").replace("</body>", "</div></section></body>")*/
+                if (inputLine.contains("<script")){
+                    isJavascript = true;
+                }
+                if (inputLine.contains("</script")){
+                    inputLine = "";
+                    isJavascript = false;
+                }
+                if (isBody && !isJavascript){
+                    inputLine = inputLine.replace("&", "&#38;")
+                            .replace("<strong>Categories</strong></strong>", "<strong>Categories</strong>")
+                            .replace("</select></label></div>", "</select></div>")
+                            .replace("<!-- fin Menu Mobile-->", "<div>")
+                            .replace("<div class=\"seo_titulo_pie\"> </div>", "<div class=\"seo_titulo_pie\">");/*.replace("async defer", "").replace("</body>", "</div></section></body>")*/
                             /*.replace("class=\"btn btn-primary\"", "")
                             .replace("xlink:", "")
                             .replace("height=16px", "height='16px'")

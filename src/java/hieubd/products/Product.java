@@ -4,7 +4,6 @@ package hieubd.products;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -23,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="imgSource" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,9 +37,9 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "price",
     "category",
-    "type"
+    "type",
+    "imgSource"
 })
-@XmlRootElement(name = "Product")
 public class Product {
 
     @XmlElement(required = true)
@@ -52,6 +52,8 @@ public class Product {
     protected String category;
     @XmlElement(required = true)
     protected String type;
+    @XmlElement(required = true)
+    protected String imgSource;
 
     /**
      * Gets the value of the brand property.
@@ -171,6 +173,30 @@ public class Product {
      */
     public void setType(String value) {
         this.type = value;
+    }
+
+    /**
+     * Gets the value of the imgSource property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    /**
+     * Sets the value of the imgSource property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setImgSource(String value) {
+        this.imgSource = value;
     }
 
 }

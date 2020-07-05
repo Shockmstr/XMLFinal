@@ -5,7 +5,12 @@
  */
 package hieubd.stax;
 
+import hieubd.products.Products;
+import java.io.File;
 import java.io.Serializable;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.events.Attribute;
@@ -108,7 +113,7 @@ public class XMLUtils implements Serializable{
                     if (name.equals(tagName) && insideParentTag){
                             // curEvent.nextEvent();
                             String result = curEvent.getElementText();
-                            System.out.println(result);
+                            //System.out.println(result);
                             //curEvent.nextTag();
                             return result; 
                     }                             
@@ -118,5 +123,33 @@ public class XMLUtils implements Serializable{
         return null;
     }
 
+    public static String getAttributeValue(XMLEventReader curEvent, String tagName, String attributeName) throws Exception{
+        if (curEvent != null){
+            while (curEvent.hasNext()) {                
+                XMLEvent event = curEvent.nextEvent();
+                if (event.isStartElement()){
+                    StartElement ele = (StartElement) event;
+                    String name = ele.getName().toString();
+                    Attribute attr = ele.getAttributeByName(new QName(attributeName));
+                    if (attr != null){
+                        if (name.equals(tagName)){
+                       // curEvent.nextEvent();
+                        String result = attr.getValue();
+                        //curEvent.nextTag();
+                        return result;
+                        }
+                    }             
+                }
+            }
+        }
+        return null;
+    }
     
+    public static void JAXBMarshalling(Products productList, String XmlFilePath) throws JAXBException{
+        JAXBContext ctx = JAXBContext.newInstance(productList.getClass());
+        Marshaller mar = ctx.createMarshaller();
+        mar.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+        mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        mar.marshal(productList, new File(XmlFilePath));
+    }
 }
