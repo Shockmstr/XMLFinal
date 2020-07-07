@@ -6,8 +6,11 @@
 package hieubd.stax;
 
 import hieubd.products.Products;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.Serializable;
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -16,6 +19,11 @@ import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import org.xml.sax.InputSource;
 
 /**
  *
@@ -30,9 +38,9 @@ public class XMLUtils implements Serializable{
                     StartElement ele = (StartElement) event;
                     String name = ele.getName().toString();
                     if (name.equals(tagName)){
-                        curEvent.nextEvent();
+                        //curEvent.nextEvent();
                         String result = curEvent.getElementText();
-                        curEvent.nextTag();
+                        //curEvent.nextTag();
                         return result;
                     }
                 }
@@ -63,37 +71,44 @@ public class XMLUtils implements Serializable{
         return null;
     }
     
-    public static String getTextContent(XMLEventReader curEvent, String tagName, int tagPosition, String tagParent, String attrParent, String attrParentVal) throws Exception{
+    public static String getTextContentContains(XMLEventReader curEvent, String tagName, String attributeName, String attributeValue) throws Exception{
         if (curEvent != null){
-            int curPos = 0;
-            boolean insideParentTag = false;
             while (curEvent.hasNext()) {                
                 XMLEvent event = curEvent.nextEvent();
                 if (event.isStartElement()){
                     StartElement ele = (StartElement) event;
                     String name = ele.getName().toString();
-                    if (name.equals(tagParent)){
-                       // System.out.println("Tagpar");
-                        Attribute parentAttr = ele.getAttributeByName(new QName(attrParent));
-                        System.out.println(parentAttr + " " + parentAttr.getValue());
-                        if (parentAttr.getValue().equals(attrParentVal)){
-                           
-                            insideParentTag = true;
-                             System.out.println(insideParentTag);
+                    Attribute attr = ele.getAttributeByName(new QName(attributeName));
+                    if (attr != null){
+                        if (name.equals(tagName) && attr.getValue().contains(attributeValue)){
+                       // curEvent.nextEvent();
+                        String result = curEvent.getElementText();
+                        //curEvent.nextTag();
+                        return result;
                         }
-                    }
-                    
-                    if (name.equals(tagName) && insideParentTag){
-                        System.out.println("curpos=" + curPos);
-                        //if (curPos == tagPosition){
-                            // curEvent.nextEvent();
-                            String result = curEvent.getElementText();
-                            System.out.println(result);
-                            //curEvent.nextTag();
-                            return result;
-                        //}                 
-                        //curPos++;   
-                    }                             
+                    }             
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static String getTextContentNextTag(XMLEventReader curEvent, String tagName, String attributeName, String attributeValue) throws Exception{
+        if (curEvent != null){
+            while (curEvent.hasNext()) {                
+                XMLEvent event = curEvent.nextEvent();
+                if (event.isStartElement()){
+                    StartElement ele = (StartElement) event;
+                    String name = ele.getName().toString();
+                    Attribute attr = ele.getAttributeByName(new QName(attributeName));
+                    if (attr != null){
+                        if (name.equals(tagName) && attr.getValue().equals(attributeValue)){
+                        curEvent.nextEvent();
+                        String result = curEvent.getElementText();
+                        //curEvent.nextTag();
+                        return result;
+                        }
+                    }             
                 }
             }
         }
@@ -151,5 +166,13 @@ public class XMLUtils implements Serializable{
         mar.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         mar.marshal(productList, new File(XmlFilePath));
+    }
+    
+    public static void validateXML(String xmlFilePath) throws Exception{
+        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = sf.newSchema(new File("src/java/hieubd/xml/product.xsd"));
+        Validator validator = schema.newValidator();
+        InputSource inputFile = new InputSource(new BufferedReader(new FileReader(xmlFilePath)));
+        validator.validate(new SAXSource(inputFile));
     }
 }

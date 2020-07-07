@@ -20,10 +20,11 @@ and open the template in the editor.
             <xs:element name="category" type="xs:string"/>
             <xs:element name="type" type="xs:string"/>
             <xs:element name="imgSource" type="xs:string"/>
+            <xs:element name="status" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
     
-    <xs:element name="Products">
+    <xs:element name="products">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="product" type="Product" maxOccurs="unbounded"/>

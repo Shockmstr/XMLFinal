@@ -50,6 +50,9 @@ public class Internet {
                     inputLine = "";
                     isJavascript = false;
                 }
+                if (inputLine.contains("<input")){
+                    inputLine = "";
+                }
                 if (isBody && !isJavascript){
                     inputLine = inputLine.replace("&", "&#38;")
                             .replace("<strong>Categories</strong></strong>", "<strong>Categories</strong>")

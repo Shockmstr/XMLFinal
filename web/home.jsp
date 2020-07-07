@@ -50,25 +50,28 @@
             function searchNode(node, strSearch, tableName){
                 if (node == null)
                     return;
-                if (node.tagName == "booktitle"){
-                    var tmp = node.firstChild.nodeValue;
-                    if (tmp.indexOf(strSearch, 0) > -1){
+                if (node.tagName == "name"){
+                    var tmp = node.firstChild.nodeValue;                  
+                    if (tmp.indexOf(strSearch) > -1){
+                        alert(node.parentNode.tagName)
                         var parent = node.parentNode;
-                        var attrID = parent.attributes.getNamedItem("id").text;
-                        new_XMLDOM += "<book id='" + attrID + "'>";
+                        alert("p: " + parent)
+                        //var attrID = parent.attributes.getNamedItem("id").text;
+                        new_XMLDOM += "<product>";
                         count++;
                         cells[0] = count;
-                        cells[1] = attrID;
+                        cells[1] = count;
                         cells[2] = node.firstChild.nodeValue;
-                        new_XMLDOM += "<booktitle>" + node.firstChild.nodeValue; + "</booktitle>";
-                        var author = node.nextSibling;
-                        cells[3] = author.firstChild.nodeValue;
-                        new_XMLDOM += "<author>" + author.firstChild.nodeValue + "</author>";
+                        new_XMLDOM += "<brand>" + node.firstChild.nodeValue; + "</brand>";
+                        var name = node.nextSibling;
+                        cells[3] = name.firstChild.nodeValue;
+                        new_XMLDOM += "<name>" + author.firstChild.nodeValue + "</name>";
                         var price = author.nextSibling;
                         cells[4] = price.firstChild.nodeValue;
                         new_XMLDOM += "<price>" + price.firstChild.nodeValue + "</price>";
                         addRow(tableName, cells);
-                        new_XMLDOM += "</book>";
+                        new_XMLDOM += "</product>";
+                        alert(new_XMLDOM)
                     }
                 }
                 var childs = node.childNodes;
@@ -85,14 +88,14 @@
                 count = 0;
                 new_XMLDOM = null;
                 var xmlDOM = new ActiveXObject("Microsoft.XMLDOM");
-                new_XMLDOM = '<library xmlns="http://xml.netbeans.org/schema/library">';
+                new_XMLDOM = '<products xmlns="http://schema/product">';
                 xmlDOM.async = false;
                 xmlDOM.load(fileName);
                 if (xmlDOM.parseError.errorCode != 0){
                     alert("Error: " + xmlDOM.parseError.reason);
                 } else {
                     searchNode(xmlDOM, myForm.txtSearch.value, tableName);
-                    new_XMLDOM += "</library>";
+                    new_XMLDOM += "</products>";
                     alert(new_XMLDOM);
                 }
             }
@@ -120,7 +123,26 @@
                 <option value="Cycling">Cycling</option>
             </select>
             <br>
-            <input type="submit" value="Search" />
-        </form>      
+            <input type="submit" value="Search" onclick="traversalDOMTree()"/>
+        </form>    
+        
+        <form name="myForm">
+            Name: <input type="text" name="txtSearch" value="" /> <br>
+            <input type="button" value="Search" onclick="traversalDOMTree('./product.xml', 'dataTable')" />
+        </form>
+        <table border="1" id="dataTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+        </table>
+        <form name="updateForm">
+            <input type="button" value="Sync" onclick="update()" />
+        </form>
     </body>
 </html>

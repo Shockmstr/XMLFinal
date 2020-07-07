@@ -23,6 +23,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
@@ -43,6 +44,7 @@ public class StaxParser {
             //boolean inProductTag = false;
             while (reader.hasNext()) {                
                 eve = reader.nextEvent();
+                //System.out.println(eve.toString().trim());
                 //System.out.println(eve.toString());
                 //if (eve.isStartElement()){
                    // StartElement ele = (StartElement) eve;
@@ -83,7 +85,7 @@ public class StaxParser {
             stillHasException = true;
             FileReader fr = null;
             try {
-                e.printStackTrace();
+                //e.printStackTrace();
                 String msg = e.getMessage();
                 if (msg.contains("terminated by the matching end-tag")){
                     String endTag = msg.substring(msg.lastIndexOf("<"), msg.length() - 2);
@@ -206,7 +208,7 @@ public class StaxParser {
                     StartElement ele = (StartElement) event;
                      //System.out.println(ele.getName().toString());
                     Product product = new Product();
-                    boolean isProduct = false;
+                    boolean hasProduct = false;
                     if (ele.getName().toString().equals("h1") && ele.getAttributeByName(new QName("class")).getValue().equals("breadCrumbs")){
                         boolean insideParentTag = true;
                         //String home = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
@@ -223,18 +225,20 @@ public class StaxParser {
                         String brand = XMLUtils.getTextContent(eventReader, "a", "class", "brand");
                         String name = XMLUtils.getTextContent(eventReader, "a", "class", "name");
                         String price = XMLUtils.getTextContent(eventReader, "strong", "class", "itemPrice");
+                        price = convertCurrency(price);
                         //System.out.println(imgSource + "\n" + brand + "-" + name +"-" + price);
-                        product.setBrand(brand.trim());
-                        product.setName(name.trim());
-                        product.setPrice(price.trim());
-                        product.setCategory(category.trim());
-                        product.setType(productType.trim());
-                        product.setImgSource(imgSource.trim());
-                        isProduct = true;
+                        if (brand != null) product.setBrand(brand.trim());
+                        if (name != null) product.setName(name.trim());
+                        if (price != null) product.setPrice(price.trim());
+                        if (category != null) product.setCategory(category.trim());
+                        if (productType != null) product.setType(productType.trim());
+                        if (imgSource != null) product.setImgSource(imgSource.trim());
+                        product.setStatus(1);
+                        hasProduct = true;
                     }
                    
                     if (list != null){
-                        if (isProduct){
+                        if (hasProduct){
                              list.add(product);
                         }
                     }
@@ -247,6 +251,98 @@ public class StaxParser {
         return list;
     }
     
+    public List<Product> getElements2ndWeb(String filePath, List<Product> list){
+        XMLInputFactory factory = XMLInputFactory.newInstance();
+        XMLEventReader eventReader = null;
+        XMLEvent event = null;
+        try {
+            eventReader = factory.createXMLEventReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));           
+            String category = "", productType = "";
+            int numOfRecords = 0;
+            boolean isInsideItemList = false;
+            while (eventReader.hasNext() && numOfRecords <= 23){
+                event = eventReader.nextEvent();
+                //System.out.println(event.toString().trim());
+                //System.out.println(event.getLocation().getLineNumber());
+                if (event.isStartElement()){
+                    StartElement ele = (StartElement) event;
+                    //System.out.println(ele.getName().toString());
+                    Product product = new Product();
+                    boolean hasProduct = false;
+                    
+                    if (ele.getName().toString().equals("div")){
+                        Attribute attr = ele.getAttributeByName(new QName("class"));
+                        if (attr != null){
+                            if (attr.getValue().equals("path path_fam")){
+                                //System.out.println("INSIDE");
+                                boolean insideParentTag = true;
+                                //String home = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
+                                eventReader.nextTag();
+                                category = XMLUtils.getTextContent(eventReader, "a", insideParentTag);
+                                eventReader.nextTag();
+                                eventReader.nextTag();
+                                eventReader.nextTag();
+                                eventReader.nextTag();
+                                eventReader.nextTag();
+                                productType = eventReader.nextEvent().toString().replace("(", "").trim();
+                                //System.out.println(home + "=" + category + "=" + productType);
+                                System.out.println(category + "=" + productType);        
+                            }
+                        }               
+                    }     
+                        
+                    if (ele.getName().toString().equals("ul")){  
+                        Attribute attr = ele.getAttributeByName(new QName("class"));
+                        if (attr != null){
+                            if (attr.getValue().equals("productos items_listado")){
+                                isInsideItemList = true;                                                      
+                            }
+                        }
+                    }
+
+                    if (ele.getName().toString().equals("li") && isInsideItemList){
+                        String imgSource = "https://www.trekkinn.com" + XMLUtils.getAttributeValue(eventReader, "img", "data-src");
+                        String name = XMLUtils.getTextContentNextTag(eventReader, "p", "class", "BoxPriceName");
+                        String brand = name;
+                        if (name != null) brand = name.split(" ")[0];
+                        String price = null;
+                        try {
+                            price = XMLUtils.getTextContent(eventReader, "p", "class", "BoxPriceValor");
+                        } catch (XMLStreamException e) {
+                            if (e.getMessage().contains("START_ELEMENT")){                          
+                                price = XMLUtils.getTextContentContains(eventReader, "span", "class", "textTachado");
+                            }
+                        }
+                        if (price == null) price = "$10";
+                        price = convertCurrency(price);
+                        //System.out.println(imgSource + "\n" + brand + "-" + name +"-" + price);
+                        
+                        if (brand != null) product.setBrand(brand.trim());
+                        if (name != null) product.setName(name.trim());
+                        if (price != null) product.setPrice(price.trim());
+                        if (category != null) product.setCategory(category.trim());
+                        if (productType != null) product.setType(productType.trim());
+                        if (imgSource != null) product.setImgSource(imgSource.trim());
+                        product.setStatus(1);
+                        hasProduct = true;
+                    }
+                   
+                    if (list != null){
+                        if (hasProduct){
+                            if (product.getName() != null){
+                                list.add(product);
+                                numOfRecords++;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     /*public void saveToXML(String xmlDataFilePath){
         try {
             JAXBContext ct = JAXBContext.newInstance(list.getClass());
@@ -258,4 +354,25 @@ public class StaxParser {
             e.printStackTrace();
         }
     }*/
+    
+    private String convertCurrency(String price){
+        final int USD_RATE = 23200;
+        final double EURO_RATE = 1.13;
+        if (price != null){
+            if (price.contains("vnd")){
+                String[] str = price.split("vnd");
+                int iPrice = Integer.parseInt(str[0].trim());
+                iPrice = Math.round(iPrice / USD_RATE);
+                return "$"+iPrice;
+            }
+            else if (price.contains("€")){
+                String[] str = price.split("€");
+                double dPrice = Double.parseDouble(str[0].trim());
+                dPrice = dPrice * EURO_RATE;
+                return "$" + Math.round(dPrice);
+            }
+            else return price;
+            }
+        return price;
+    }
 }

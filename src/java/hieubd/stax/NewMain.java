@@ -6,6 +6,8 @@
 package hieubd.stax;
 
 import static hieubd.constants.URLConstants.*;
+import hieubd.products.Product;
+import hieubd.products.Products;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBException;
@@ -18,17 +20,17 @@ public class NewMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws JAXBException {
+    public static void main(String[] args) throws JAXBException, Exception {
         // TODO code application logic here
         String filepath = "test.html";
-        /*Products products = new Products();
+        Products products = new Products();
         List<Product> productList = products.getProduct();
         //String url = "http://www.kieutrongkhanh.net/";
         List<String> URLs = initURLs();
-     
+        StaxParser parser = new StaxParser();
+        
         for (String URL : URLs) {
-            Internet.parseHTML(filepath, URL);
-            StaxParser parser = new StaxParser();
+            Internet.parseHTML(filepath, URL);          
             boolean stillHasException = true;
             while (stillHasException) {            
                 stillHasException = parser.parseWellFormed(filepath, stillHasException);
@@ -37,14 +39,20 @@ public class NewMain {
             //productList.forEach(p -> System.out.println(p));
             
         }
-        String XMLFilePath = "src/java/hieubd/xml/product.xml";
-        XMLUtils.JAXBMarshalling(products, XMLFilePath);*/
-        Internet.parseHTML(filepath, TREKKINN_CLIMBING_QUICKDRAW);
-        StaxParser parser = new StaxParser();
-        boolean stillHasException = true;
-        while (stillHasException) {            
-            stillHasException = parser.parseWellFormed(filepath, stillHasException);
+        
+        List<String> URLs2nd = initURLs2nd();
+        for (String url : URLs2nd) {
+            Internet.parseHTML(filepath, url);
+            boolean stillHasException = true;
+            while (stillHasException) {            
+                stillHasException = parser.parseWellFormed(filepath, stillHasException);
+            }
+            productList = parser.getElements2ndWeb(filepath, productList);
         }
+        String XMLFilePath = "src/java/hieubd/xml/product.xml";
+        XMLUtils.JAXBMarshalling(products, XMLFilePath);
+        XMLUtils.validateXML(XMLFilePath);
+        
     }
     
     private static List<String> initURLs(){
@@ -55,6 +63,14 @@ public class NewMain {
         URLs.add(URL_FISHING_ROD_REEL + URL_ITEM_PER_PAGE_24);
         URLs.add(URL_FISHING_TACKLE + URL_ITEM_PER_PAGE_24);
         URLs.add(URL_FISHING_TACKLE_BOX + URL_ITEM_PER_PAGE_24);
+        return URLs;
+    }
+    
+    private static List<String> initURLs2nd(){
+        List<String> URLs = new ArrayList<>();
+        URLs.add(TREKKINN_CLIMBING_HARNESS);
+        URLs.add(TREKKINN_CLIMBING_QUICKDRAW);
+        URLs.add(TREKKINN_ROPE);       
         return URLs;
     }
 }

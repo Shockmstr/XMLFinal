@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="imgSource" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
     "price",
     "category",
     "type",
-    "imgSource"
+    "imgSource",
+    "status"
 })
 public class Product {
 
@@ -54,6 +56,7 @@ public class Product {
     protected String type;
     @XmlElement(required = true)
     protected String imgSource;
+    protected int status;
 
     /**
      * Gets the value of the brand property.
@@ -197,6 +200,22 @@ public class Product {
      */
     public void setImgSource(String value) {
         this.imgSource = value;
+    }
+
+    /**
+     * Gets the value of the status property.
+     * 
+     */
+    public int getStatus() {
+        return status;
+    }
+
+    /**
+     * Sets the value of the status property.
+     * 
+     */
+    public void setStatus(int value) {
+        this.status = value;
     }
 
 }
