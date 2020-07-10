@@ -232,7 +232,7 @@ public class StaxParser {
                         if (price != null) product.setPrice(price.trim());
                         if (category != null) product.setCategory(category.trim());
                         if (productType != null) product.setType(productType.trim());
-                        if (imgSource != null) product.setImgSource(imgSource.trim());
+                        if (imgSource != null) product.setImg(imgSource.trim());
                         product.setStatus(1);
                         hasProduct = true;
                     }
@@ -322,7 +322,7 @@ public class StaxParser {
                         if (price != null) product.setPrice(price.trim());
                         if (category != null) product.setCategory(category.trim());
                         if (productType != null) product.setType(productType.trim());
-                        if (imgSource != null) product.setImgSource(imgSource.trim());
+                        if (imgSource != null) product.setImg(imgSource.trim());
                         product.setStatus(1);
                         hasProduct = true;
                     }

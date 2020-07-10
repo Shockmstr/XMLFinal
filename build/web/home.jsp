@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -115,34 +116,59 @@
     </head>
     <body>
         <h1>Outdoor Activities Item</h1>
-        <form action="SearchBoxServlet" method="POST">
+        <form action="searchcategory" method="POST">
             Choose your activity: 
             <select name="activity">
-                <option value="Camp and Hike">Camp & Hike</option>
+                <option value="Camp &amp; Hike">Camp & Hike</option>
                 <option value="Fishing">Fishing</option>
-                <option value="Cycling">Cycling</option>
+                <option value="Climbing equipment">Climbing Equipment</option>
             </select>
-            <br>
-            <input type="submit" value="Search" onclick="traversalDOMTree()"/>
+            
+            <input type="submit" value="Search"/>
         </form>    
         
-        <form name="myForm">
-            Name: <input type="text" name="txtSearch" value="" /> <br>
-            <input type="button" value="Search" onclick="traversalDOMTree('./product.xml', 'dataTable')" />
+        <form action="search">
+            Search:
+            <input type="text" name="txtSearch" placeholder="Input name" />
+            <input type="submit" value="Search" />
         </form>
-        <table border="1" id="dataTable">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Code</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-        </table>
-        <form name="updateForm">
-            <input type="button" value="Sync" onclick="update()" />
-        </form>
+        <div style="float: right">
+            <input type="button" value="Your Order" />
+            <input type="button" value="View Cart" />
+        </div>
+      
+            <c:set var="list" value="${requestScope.PROLIST}"/>
+            <c:if test="${not empty list}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Image</th>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="dto" items="${list}" varStatus="counter">
+                        <tr>
+                            <input type="hidden" value="${dto.id}" name="id"/>
+                            <td>${counter.count}</td>
+                            <td><img src="${dto.img}" alt="img"/></td>
+                            <td>${dto.brand}</td>
+                            <td>${dto.name}</td>
+                            <td>${dto.price}</td>
+                            <td>${dto.type}</td>
+                            <td>${dto.category}</td>
+                        </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+ 
+       
+        
     </body>
 </html>

@@ -1,9 +1,12 @@
 
 package hieubd.products;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -22,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="imgSource" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="img" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -39,10 +42,11 @@ import javax.xml.bind.annotation.XmlType;
     "price",
     "category",
     "type",
-    "imgSource",
+    "img",
     "status"
 })
-public class Product {
+@XmlRootElement
+public class Product implements Serializable{
 
     @XmlElement(required = true)
     protected String brand;
@@ -55,8 +59,10 @@ public class Product {
     @XmlElement(required = true)
     protected String type;
     @XmlElement(required = true)
-    protected String imgSource;
+    protected String img;
     protected int status;
+    @XmlTransient
+    protected int id;
 
     /**
      * Gets the value of the brand property.
@@ -179,27 +185,27 @@ public class Product {
     }
 
     /**
-     * Gets the value of the imgSource property.
+     * Gets the value of the img property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getImgSource() {
-        return imgSource;
+    public String getImg() {
+        return img;
     }
 
     /**
-     * Sets the value of the imgSource property.
+     * Sets the value of the img property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setImgSource(String value) {
-        this.imgSource = value;
+    public void setImg(String value) {
+        this.img = value;
     }
 
     /**
@@ -217,5 +223,30 @@ public class Product {
     public void setStatus(int value) {
         this.status = value;
     }
+
+    public String toXML(){
+        String s = "";
+        s += "<product>\n";
+        s += "<brand>" + brand + "</brand>\n";
+        s += "<category>" + category + "</category>\n";
+        s += "<id>" + "1" + "</id>\n";
+        s += "<img>" + img + "</img>\n";
+        s += "<name>" + name + "</name>\n";
+        s += "<price>" + price + "</price>\n";
+        s += "<status>" + status + "</status>\n";
+        s += "<type>" + type + "</type>\n";
+        s += "</product>";
+        return s;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
 }

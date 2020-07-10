@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
-        <servlet-name>SearchBoxServlet</servlet-name>
-        <servlet-class>hieubd.servlet.SearchBoxServlet</servlet-class>
+        <servlet-name>SearchByCategoryServlet</servlet-name>
+        <servlet-class>hieubd.servlet.SearchByCategoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>hieubd.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>hieubd.servlet.SearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SearchBoxServlet</servlet-name>
-        <url-pattern>/SearchBoxServlet</url-pattern>
+        <servlet-name>SearchByCategoryServlet</servlet-name>
+        <url-pattern>/SearchByCategoryServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>DispatcherFilter</filter-name>
+        <filter-class>hieubd.filter.DispatcherFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DispatcherFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>   
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>home.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -19,7 +19,7 @@ and open the template in the editor.
             <xs:element name="price" type="xs:string"/>
             <xs:element name="category" type="xs:string"/>
             <xs:element name="type" type="xs:string"/>
-            <xs:element name="imgSource" type="xs:string"/>
+            <xs:element name="img" type="xs:string"/>
             <xs:element name="status" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
