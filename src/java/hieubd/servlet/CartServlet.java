@@ -5,24 +5,25 @@
  */
 package hieubd.servlet;
 
-import hieubd.entity.Product;
-import hieubd.ws.client.ProductClient;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.GenericType;
 
 /**
  *
  * @author Admin
  */
-public class SearchServlet extends HttpServlet {
-    private final String HOME = "home.jsp";
-    private final String SUCCESS = "home.jsp";
+@WebServlet(name = "CartServlet", urlPatterns = {"/CartServlet"})
+public class CartServlet extends HttpServlet {
+    private final String UPDATE_SERVLET = "UpdateCartServlet";
+    private final String DELETE_SERVLET = "DeleteFromCartServlet";
+    private final String CART = "viewCart.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,22 +36,21 @@ public class SearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = HOME;
-        try {
-            String txtSearch = request.getParameter("txtSearch");
-            ProductClient client = new ProductClient();
-            HttpSession session = request.getSession();
-            if (txtSearch.isEmpty()){
-                List<Product> result = client.findAll_XML(new GenericType<List<Product>>(){});
-                session.setAttribute("PROLIST", result);
-            } else {
-                List<Product> result = client.findByName_XML(txtSearch);
-                session.setAttribute("PROLIST", result);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        PrintWriter out = response.getWriter();
+        
+        String action = request.getParameter("btnCart");
+        String url = CART;
+        try  {
+           if (action.equals("Update")){
+               url = UPDATE_SERVLET;
+           }
+           else if (action.equals("Remove")){
+               url = DELETE_SERVLET;
+           }
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+            out.close();
         }
     }
 

@@ -12,6 +12,14 @@
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>hieubd.servlet.SearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>hieubd.servlet.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StartServlet</servlet-name>
+        <servlet-class>hieubd.servlet.StartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchByCategoryServlet</servlet-name>
         <url-pattern>/SearchByCategoryServlet</url-pattern>
@@ -31,7 +39,15 @@
     <filter-mapping>
         <filter-name>DispatcherFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>   
+    </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartServlet</servlet-name>
+        <url-pattern>/StartServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

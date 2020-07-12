@@ -5,7 +5,12 @@
  */
 package hieubd.servlet;
 
+import hieubd.cart.CartProcessor;
+import hieubd.entity.Cart;
+import hieubd.entity.CartDetail;
 import hieubd.entity.Product;
+import hieubd.ws.client.CartClient;
+import hieubd.ws.client.CartDetailClient;
 import hieubd.ws.client.ProductClient;
 import java.io.IOException;
 import java.util.List;
@@ -20,8 +25,7 @@ import javax.ws.rs.core.GenericType;
  *
  * @author Admin
  */
-public class SearchServlet extends HttpServlet {
-    private final String HOME = "home.jsp";
+public class StartServlet extends HttpServlet {
     private final String SUCCESS = "home.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +38,37 @@ public class SearchServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = SUCCESS;
         response.setContentType("text/html;charset=UTF-8");
-        String url = HOME;
         try {
-            String txtSearch = request.getParameter("txtSearch");
-            ProductClient client = new ProductClient();
-            HttpSession session = request.getSession();
-            if (txtSearch.isEmpty()){
-                List<Product> result = client.findAll_XML(new GenericType<List<Product>>(){});
-                session.setAttribute("PROLIST", result);
-            } else {
-                List<Product> result = client.findByName_XML(txtSearch);
-                session.setAttribute("PROLIST", result);
-            }
+            HttpSession session = request.getSession(true);
+            String username = session.getAttribute("USERNAME").toString();
+            try {
+               
+                    CartClient cartClient = new CartClient();
+                    Cart cart = cartClient.findByCustID(Cart.class, username);
+                    CartDetailClient cartDetailClient = new CartDetailClient();
+                    CartProcessor cartProcessor = (CartProcessor) session.getAttribute("CARTLIST");
+                    System.out.println(cart.getCartID());
+                    ProductClient productClient = new ProductClient();
+                    if (cartProcessor == null){
+                        System.out.println("new");
+                        cartProcessor = new CartProcessor(username);
+                    }
+                    List<CartDetail> list = cartDetailClient.findByCartID(new GenericType<List<CartDetail>>(){}, cart.getCartID().toString());
+                    System.out.println(list);
+                    for (CartDetail cartDetail : list) {
+                        System.out.println(cartDetail.getDetailID() + "detId");
+                        Product product = productClient.find_XML(Product.class, cartDetail.getProductID().getId().toString());
+                        product.setQuantity(cartDetail.getQuantity());
+                        System.out.println(product.getName() + " " + product.getId());
+                        cartProcessor.getItems().put(product.getId().toString(), product);
+                    }
+                    session.setAttribute("CARTLIST", cartProcessor);
+                    //session.setAttribute("CART", cart);
+                } catch (Exception ex) {}
         } catch (Exception e) {
-            e.printStackTrace();
+            log(e.getMessage());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

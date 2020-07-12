@@ -5,23 +5,19 @@
  */
 package hieubd.servlet;
 
-import hieubd.entity.Product;
-import hieubd.ws.client.ProductClient;
+import hieubd.cart.CartProcessor;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.GenericType;
 
 /**
  *
  * @author Admin
  */
-public class SearchServlet extends HttpServlet {
-    private final String HOME = "home.jsp";
+public class AddToCartServlet extends HttpServlet {
     private final String SUCCESS = "home.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,18 +31,21 @@ public class SearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = HOME;
+        String url = SUCCESS;
         try {
-            String txtSearch = request.getParameter("txtSearch");
-            ProductClient client = new ProductClient();
-            HttpSession session = request.getSession();
-            if (txtSearch.isEmpty()){
-                List<Product> result = client.findAll_XML(new GenericType<List<Product>>(){});
-                session.setAttribute("PROLIST", result);
-            } else {
-                List<Product> result = client.findByName_XML(txtSearch);
-                session.setAttribute("PROLIST", result);
+            String productId = request.getParameter("txtId");
+            String sQuantity = request.getParameter(productId);
+            String username = request.getSession().getAttribute("USERNAME").toString();
+            int quantity = Integer.parseInt(sQuantity);
+            
+            HttpSession session = request.getSession(true);
+            CartProcessor cartProcessor = (CartProcessor) session.getAttribute("CARTLIST");
+            if (cartProcessor == null){
+                cartProcessor = new CartProcessor(username);
             }
+            
+            cartProcessor.addItemToCart(productId, quantity);
+            session.setAttribute("CARTLIST", cartProcessor);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

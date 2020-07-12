@@ -72,7 +72,9 @@ public class Product implements Serializable {
     private Collection<OrderDetail> orderDetailCollection;
     @OneToMany(mappedBy = "productID")
     private Collection<CartDetail> cartDetailCollection;
-
+    @XmlTransient
+    private int quantity;
+    
     public Product() {
     }
 
@@ -162,6 +164,15 @@ public class Product implements Serializable {
         this.cartDetailCollection = cartDetailCollection;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

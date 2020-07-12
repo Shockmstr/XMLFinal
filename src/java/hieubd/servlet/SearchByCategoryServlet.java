@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,8 +46,8 @@ public class SearchByCategoryServlet extends HttpServlet {
                 //out.println(product.getName());
                 System.out.println(product.getName());
             }*/
-            //HttpSession session = request.getSession();
-            request.setAttribute("PROLIST", list);
+            HttpSession session = request.getSession();
+            session.setAttribute("PROLIST", list);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

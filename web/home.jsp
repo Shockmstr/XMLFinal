@@ -112,10 +112,21 @@
                 url += new_XMLDOM;
                 xmlHttp.send(url);
             }
+            
+            function getQuantity(id){
+                var quantElem = document.getElementById(id);
+                var quantity = quantElem.value;            
+                alert(quantity + " items was added!");             
+            }
         </script>
     </head>
     <body>
+        <h2>Hello, ${sessionScope.USERNAME}</h2>
         <h1>Outdoor Activities Item</h1>
+        <div style="float: right">
+            <input type="button" value="Your Order" />          
+            <a href="viewCart.jsp"><input type="button" value="View Cart"/></a>
+        </div>
         <form action="searchcategory" method="POST">
             Choose your activity: 
             <select name="activity">
@@ -126,18 +137,15 @@
             
             <input type="submit" value="Search"/>
         </form>    
-        
+        <br>
         <form action="search">
-            Search:
+            Or Search By Name (Blank to get all):
             <input type="text" name="txtSearch" placeholder="Input name" />
             <input type="submit" value="Search" />
         </form>
-        <div style="float: right">
-            <input type="button" value="Your Order" />
-            <input type="button" value="View Cart" />
-        </div>
+        
       
-            <c:set var="list" value="${requestScope.PROLIST}"/>
+        <c:set var="list" value="${sessionScope.PROLIST}"/>
             <c:if test="${not empty list}">
                 <table border="1">
                     <thead>
@@ -149,6 +157,7 @@
                             <th>Price</th>
                             <th>Type</th>
                             <th>Category</th>
+                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -161,7 +170,14 @@
                             <td>${dto.name}</td>
                             <td>${dto.price}</td>
                             <td>${dto.type}</td>
-                            <td>${dto.category}</td>
+                            <td>${dto.category}</td>                          
+                            <td>
+                                <form action="AddToCartServlet" method="POST">
+                                    <input type="hidden" value="${dto.id}" name="txtId"/>
+                                    <input type="number" id="${dto.id}" min="1" max="999" name="${dto.id}" value="1"/>
+                                    <input type="submit" value="Add to Cart" onclick="getQuantity(${dto.id})"/>
+                                </form>                             
+                            </td>
                         </tr>
                         </c:forEach>
                     </tbody>

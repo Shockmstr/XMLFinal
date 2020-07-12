@@ -5,24 +5,26 @@
  */
 package hieubd.servlet;
 
+import hieubd.cart.CartProcessor;
 import hieubd.entity.Product;
-import hieubd.ws.client.ProductClient;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.util.Map;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.GenericType;
 
 /**
  *
  * @author Admin
  */
-public class SearchServlet extends HttpServlet {
-    private final String HOME = "home.jsp";
-    private final String SUCCESS = "home.jsp";
+@WebServlet(name = "UpdateCartServlet", urlPatterns = {"/UpdateCartServlet"})
+public class UpdateCartServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,22 +37,29 @@ public class SearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = HOME;
+        PrintWriter out = response.getWriter();
         try {
-            String txtSearch = request.getParameter("txtSearch");
-            ProductClient client = new ProductClient();
-            HttpSession session = request.getSession();
-            if (txtSearch.isEmpty()){
-                List<Product> result = client.findAll_XML(new GenericType<List<Product>>(){});
-                session.setAttribute("PROLIST", result);
-            } else {
-                List<Product> result = client.findByName_XML(txtSearch);
-                session.setAttribute("PROLIST", result);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            HttpSession session = request.getSession(false);
+            if (session != null){
+                CartProcessor cart = (CartProcessor) session.getAttribute("CARTLIST");
+                if (cart != null){
+                    for (Map.Entry<String, Product> set : cart.getItems().entrySet()) {
+                        String id = set.getKey();
+                        int quantity = Integer.parseInt(request.getParameter(id));
+                        cart.updateItemFromCart(id, quantity);                       
+                    }// end if map                  
+                }// end if cart null
+            }// end if session
+            String url = "viewCart.jsp";
+            response.sendRedirect(url);
+        } catch (NumberFormatException ex) {
+            log(ex.getMessage());
+        } catch (NamingException ex) {
+            log(ex.getMessage());
+        } catch (Exception ex) {
+            log(ex.getMessage());
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            out.close();
         }
     }
 

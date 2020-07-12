@@ -5,24 +5,25 @@
  */
 package hieubd.servlet;
 
-import hieubd.entity.Product;
-import hieubd.ws.client.ProductClient;
+import hieubd.cart.CartProcessor;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.GenericType;
 
 /**
  *
  * @author Admin
  */
-public class SearchServlet extends HttpServlet {
-    private final String HOME = "home.jsp";
-    private final String SUCCESS = "home.jsp";
+@WebServlet(name = "DeleteFromCartServlet", urlPatterns = {"/DeleteFromCartServlet"})
+public class DeleteFromCartServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,22 +36,30 @@ public class SearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = HOME;
-        try {
-            String txtSearch = request.getParameter("txtSearch");
-            ProductClient client = new ProductClient();
-            HttpSession session = request.getSession();
-            if (txtSearch.isEmpty()){
-                List<Product> result = client.findAll_XML(new GenericType<List<Product>>(){});
-                session.setAttribute("PROLIST", result);
-            } else {
-                List<Product> result = client.findByName_XML(txtSearch);
-                session.setAttribute("PROLIST", result);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        PrintWriter out = response.getWriter();
+        try  {
+            HttpSession session = request.getSession(false);
+            if (session != null){
+                CartProcessor cart = (CartProcessor) session.getAttribute("CARTLIST");
+                if (cart != null){
+                    String[] ids = request.getParameterValues("chkCartAction");
+                    if (ids != null){
+                        for (String id : ids) {
+                            cart.deleteItemFromCart(id);
+                        }// end if string
+                    }// end if string null
+                }// end if cart
+            }// end if session
+            String url = "viewCart.jsp";
+            response.sendRedirect(url);
+        } catch (NamingException ex) {
+            log(ex.getMessage());
+        } catch (SQLException ex) {
+            log(ex.getMessage());
+        } catch (Exception ex) {
+            log(ex.getMessage());
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            out.close();
         }
     }
 

@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Serializable;
+import java.util.StringTokenizer;
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -176,4 +177,13 @@ public class XMLUtils implements Serializable{
         validator.validate(new SAXSource(inputFile));
     }
     
+    public static Double getThePrice(String price) throws Exception{
+        StringTokenizer stk = new StringTokenizer(price, "$");
+        while (stk.hasMoreTokens()) {            
+            String newPrice = stk.nextToken();
+            //System.out.println(newPrice);
+            return Double.parseDouble(newPrice);
+        }
+        return 0.0;
+    }
 }
